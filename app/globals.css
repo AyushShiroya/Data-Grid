@@ -1,0 +1,747 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Enhanced scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-muted/30 rounded-lg;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/40 rounded-lg border-2 border-transparent;
+  background-clip: content-box;
+  transition: background-color 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/60;
+}
+
+/* Mobile scrollbar */
+@media (max-width: 768px) {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+}
+
+/* Enhanced Animation classes */
+.fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-in-right {
+  animation: slideInRight 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scale-in {
+  animation: scaleIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bounce-in {
+  animation: bounceIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.stagger-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+.column-slide {
+  animation: columnSlide 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.row-slide-in {
+  animation: rowSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.touch-feedback {
+  animation: touchFeedback 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.loading-pulse {
+  animation: loadingPulse 1.5s ease-in-out infinite;
+}
+
+.loading-dots {
+  animation: loadingDots 1.4s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes columnSlide {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rowSlideIn {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes touchFeedback {
+  0% {
+    transform: scale(1);
+    background-color: hsl(var(--accent));
+  }
+  50% {
+    transform: scale(0.95);
+    background-color: hsl(var(--primary) / 0.1);
+  }
+  100% {
+    transform: scale(1);
+    background-color: hsl(var(--accent));
+  }
+}
+
+@keyframes loadingPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes loadingDots {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(59, 130, 246, 0);
+  }
+}
+
+/* Grid specific enhanced styles */
+.data-grid-container {
+  @apply custom-scrollbar;
+  background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--muted) / 0.1));
+  touch-action: pan-x pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+
+.data-grid-header {
+  background: linear-gradient(135deg, hsl(var(--muted) / 0.8), hsl(var(--muted) / 0.4));
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid hsl(var(--border));
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.data-grid-row {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid hsl(var(--border) / 0.5);
+  touch-action: manipulation;
+}
+
+.data-grid-row:hover {
+  background: linear-gradient(90deg, hsl(var(--accent) / 0.5), hsl(var(--accent) / 0.8), hsl(var(--accent) / 0.5));
+  transform: translateX(2px);
+  box-shadow: 0 2px 8px 0 rgb(0 0 0 / 0.1);
+}
+
+.data-grid-row.selected {
+  background: linear-gradient(90deg, hsl(var(--primary) / 0.1), hsl(var(--primary) / 0.2), hsl(var(--primary) / 0.1));
+  border-color: hsl(var(--primary) / 0.3);
+}
+
+.data-grid-row.touch-active {
+  animation: touchFeedback 0.2s ease;
+}
+
+.data-grid-cell {
+  @apply border-r border-border/50 last:border-r-0;
+  transition: all 0.15s ease;
+  touch-action: manipulation;
+}
+
+.data-grid-cell:hover {
+  background: hsl(var(--accent) / 0.3);
+}
+
+.data-grid-cell.editing {
+  background: hsl(var(--primary) / 0.1);
+  box-shadow: inset 0 0 0 2px hsl(var(--primary) / 0.3);
+  animation: pulse-glow 2s infinite;
+}
+
+/* Column header enhancements */
+.column-header {
+  position: relative;
+  transition: all 0.2s ease;
+  touch-action: manipulation;
+}
+
+.column-header:hover {
+  background: hsl(var(--accent) / 0.6);
+  transform: translateY(-1px);
+}
+
+.column-header.sortable:hover {
+  cursor: pointer;
+}
+
+.column-header.sorted {
+  background: hsl(var(--primary) / 0.1);
+  color: hsl(var(--primary));
+}
+
+.column-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: hsl(var(--primary));
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.column-header.sorted::after {
+  transform: scaleX(1);
+}
+
+.column-header.dragging {
+  opacity: 0.5;
+  transform: rotate(5deg);
+  z-index: 1000;
+}
+
+/* Loading skeleton */
+.skeleton {
+  background: linear-gradient(90deg, hsl(var(--muted)) 25%, hsl(var(--muted) / 0.5) 50%, hsl(var(--muted)) 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Button enhancements */
+.btn-primary {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary) / 0.8));
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 0.1);
+  touch-action: manipulation;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 0.15);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Status badge animations */
+.status-badge {
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.status-badge::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.status-badge:hover::before {
+  left: 100%;
+}
+
+.status-active {
+  background: linear-gradient(135deg, #10b981, #059669);
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+  animation: pulse-glow 3s infinite;
+}
+
+.status-inactive {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+/* Bulk actions bar */
+.bulk-actions-bar {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--primary) / 0.05));
+  border: 1px solid hsl(var(--primary) / 0.2);
+  backdrop-filter: blur(8px);
+  animation: slideInUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .data-grid-container {
+    font-size: 0.875rem;
+  }
+
+  .column-header {
+    padding: 0.5rem;
+  }
+
+  .data-grid-cell {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .data-grid-container {
+    font-size: 0.8rem;
+  }
+
+  .data-grid-cell {
+    padding: 0.375rem 0.5rem;
+    min-width: 80px;
+  }
+
+  .data-grid-row:hover {
+    transform: none;
+  }
+
+  .column-header:hover {
+    transform: none;
+  }
+
+  /* Mobile-specific touch styles */
+  .data-grid-row:active {
+    background: hsl(var(--accent) / 0.8);
+    animation: touchFeedback 0.2s ease;
+  }
+
+  .data-grid-cell:active {
+    background: hsl(var(--primary) / 0.1);
+  }
+
+  /* Hide some columns on mobile */
+  .mobile-hidden {
+    display: none;
+  }
+
+  /* Adjust button sizes for touch */
+  .mobile-touch-button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Mobile toolbar adjustments */
+  .mobile-toolbar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .mobile-search {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .data-grid-container {
+    font-size: 0.75rem;
+  }
+
+  .data-grid-cell {
+    padding: 0.25rem 0.375rem;
+    min-width: 60px;
+  }
+
+  /* Stack toolbar items */
+  .mobile-toolbar {
+    align-items: stretch;
+  }
+
+  .mobile-toolbar > * {
+    width: 100%;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .data-grid-row:hover {
+    background: none;
+    transform: none;
+  }
+
+  .column-header:hover {
+    background: none;
+    transform: none;
+  }
+
+  .data-grid-cell:hover {
+    background: none;
+  }
+
+  /* Enhanced touch targets */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Touch feedback */
+  .data-grid-row:active {
+    background: hsl(var(--accent) / 0.8);
+    animation: touchFeedback 0.15s ease;
+  }
+
+  .column-header:active {
+    background: hsl(var(--accent) / 0.8);
+    animation: touchFeedback 0.15s ease;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .data-grid-container {
+    overflow: visible !important;
+    height: auto !important;
+  }
+
+  .data-grid-row:hover {
+    background: none !important;
+    transform: none !important;
+  }
+
+  .data-grid-header {
+    background: white !important;
+  }
+}
+
+/* Dark mode specific enhancements */
+.dark .data-grid-header {
+  background: linear-gradient(135deg, hsl(var(--muted) / 0.9), hsl(var(--muted) / 0.6));
+}
+
+.dark .data-grid-row:hover {
+  background: linear-gradient(90deg, hsl(var(--accent) / 0.3), hsl(var(--accent) / 0.5), hsl(var(--accent) / 0.3));
+}
+
+.dark .status-active {
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+}
+
+/* Micro-interactions */
+.micro-bounce {
+  transition: transform 0.1s ease;
+}
+
+.micro-bounce:active {
+  transform: scale(0.95);
+}
+
+.hover-lift {
+  transition: all 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 0.15);
+}
+
+/* Focus styles for accessibility */
+.focus-ring:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Staggered animation delays */
+.stagger-1 {
+  animation-delay: 0.1s;
+}
+.stagger-2 {
+  animation-delay: 0.2s;
+}
+.stagger-3 {
+  animation-delay: 0.3s;
+}
+.stagger-4 {
+  animation-delay: 0.4s;
+}
+.stagger-5 {
+  animation-delay: 0.5s;
+}
+
+/* Loading states */
+.loading-skeleton {
+  background: linear-gradient(90deg, hsl(var(--muted)) 25%, hsl(var(--muted) / 0.5) 50%, hsl(var(--muted)) 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+.loading-dots::after {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: loadingDots 1.4s ease-in-out infinite;
+  margin-left: 4px;
+}
+
+.loading-dots::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: loadingDots 1.4s ease-in-out infinite;
+  animation-delay: 0.2s;
+  margin-right: 4px;
+}
+
+/* Column resizing */
+.column-resizer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  cursor: col-resize;
+  background: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.column-resizer:hover {
+  background: hsl(var(--primary) / 0.3);
+}
+
+.column-resizer.resizing {
+  background: hsl(var(--primary));
+}
+
+/* Drag and drop styles */
+.draggable {
+  cursor: grab;
+}
+
+.draggable:active {
+  cursor: grabbing;
+}
+
+.drag-preview {
+  opacity: 0.8;
+  transform: rotate(5deg);
+  box-shadow: 0 8px 25px 0 rgb(0 0 0 / 0.15);
+  z-index: 1000;
+}
+
+.drop-zone {
+  position: relative;
+}
+
+.drop-zone::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: hsl(var(--primary) / 0.1);
+  border: 2px dashed hsl(var(--primary));
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.drop-zone.drag-over::before {
+  opacity: 1;
+}
